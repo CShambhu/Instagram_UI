@@ -5,22 +5,20 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final whiteText = TextStyle(color: Colors.white, fontSize: 17);
     return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 20, top: 60, right: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 45),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: .start,
                 children: [
                   Icon(Icons.arrow_back, size: 35, color: Colors.white),
                   SizedBox(width: 25),
-                  Text(
-                    "cozy_and_obsessed",
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
+                  Text("cozy_and_obsessed", style: whiteText),
                   SizedBox(width: 20),
                   Icon(Icons.notifications, size: 35, color: Colors.white),
                   Spacer(),
@@ -41,228 +39,183 @@ class Profile extends StatelessWidget {
                             padding: const EdgeInsets.only(left: 5, top: 5),
                             child: Image.asset(
                               "assets/images/superman.png",
-                              height: 80,
-                              width: 80,
+                              height: 70,
+                              width: 70,
                             ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(width: 15),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 50),
-                      child: Column(
-                        children: [
-                          Text(
-                            "Superman", // "superman" name long xa esko lagi yo padding spacing pugira xa,, suppose arko name "super"
-                            // garda esko lagi small spacing hunxa .. josle format bigarxa,,so how do you do it ?
-                            style: TextStyle(fontSize: 20, color: Colors.white),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 70),
-                            child: Text(
-                              "20",
-                              style: TextStyle(
-                                fontSize: 17,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 45),
-                            child: Text(
-                              "Posts",
-                              style: TextStyle(
-                                fontSize: 17,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // ASK HOW TO GIVE STYLE COLOR TO ALL OF THE TEXT AT ONCE
-                    Column(
+                    SizedBox(width: 10),
+                    Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            top: 20,
-                            right:
-                                20, // right padding increase garda followers left //padding kina vaira xa
-                          ),
-
-                          child: Text(
-                            "200",
-                            style: TextStyle(fontSize: 17, color: Colors.white),
-                          ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Superman", style: whiteText),
+                            SizedBox(height: 4),
+                            Text("20", style: whiteText),
+                            SizedBox(height: 4),
+                            Text("Posts", style: whiteText),
+                          ],
                         ),
-                        Text(
-                          "followers",
-                          style: TextStyle(fontSize: 17, color: Colors.white),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 25),
+                            Text("200", style: whiteText),
+                            SizedBox(height: 7),
+                            Text("followers", style: whiteText),
+                          ],
+                        ),
+                        SizedBox(width: 10),
+
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+
+                          children: [
+                            SizedBox(height: 24),
+
+                            Text("300", style: whiteText),
+                            SizedBox(height: 12),
+
+                            Text("following", style: whiteText),
+                          ],
                         ),
                       ],
                     ),
 
-                    SizedBox(width: 20),
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 28),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 40),
-                            child: Text(
-                              "300",
-                              style: TextStyle(
-                                fontSize: 17,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            "following",
-                            style: TextStyle(fontSize: 17, color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ),
+                    // ASK HOW TO GIVE STYLE COLOR TO ALL OF THE TEXT AT ONCE
                   ],
                 ),
               ),
+
               SizedBox(height: 20),
 
-              Padding(
-                padding: const EdgeInsets.only(right: 190),
-                child: Text(
-                  "About Profile.... Quotes",
-                  style: TextStyle(color: Colors.white),
-                ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text("About Profile.... Quotes", style: whiteText),
               ),
 
-              Padding(
-                padding: const EdgeInsets.only(right: 250),
+              Align(
+                alignment: Alignment.centerLeft,
                 child: ElevatedButton(
                   onPressed: () {},
-                  style: ElevatedButton.styleFrom(minimumSize: Size(50, 30)),
-                  child: Row(children: [Icon(Icons.add), Text("Add")]),
+                  style: ElevatedButton.styleFrom(minimumSize: Size(30, 30)),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [Icon(Icons.add), Text("Add")],
+                  ),
                 ),
               ),
 
+              //following
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(100, 40),
-                      backgroundColor: const Color.fromARGB(255, 143, 141, 141),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadiusGeometry.circular(10),
+                  Expanded(
+                    flex: 3,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(0, 40),
+                        backgroundColor: Colors.grey,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusGeometry.circular(10),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      "following",
-                      style: TextStyle(color: Colors.white),
+                      child: Text(
+                        "Following",
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                   SizedBox(width: 5),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(100, 40),
-                      backgroundColor: const Color.fromARGB(255, 143, 141, 141),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadiusGeometry.circular(10),
-                      ),
-                    ),
-                    child: Text(
-                      "message",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  SizedBox(width: 5),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(100, 40),
-                      backgroundColor: const Color.fromARGB(255, 143, 141, 141),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadiusGeometry.circular(10),
-                      ),
-                    ),
-                    child: Text(
-                      "contact",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  SizedBox(width: 5),
+                  Expanded(
+                    flex: 4,
 
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadiusGeometry.circular(10),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.grey,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusGeometry.circular(10),
+                        ),
                       ),
-                      minimumSize: Size(10, 40),
-                      backgroundColor: const Color.fromARGB(
-                        255,
-                        143,
-                        141,
-                        141,
-                      ), //  ASK ABOUT THE BUTTON SIZE NO DECREASING
+                      child: Text(
+                        "message",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
-                    onPressed: () {},
-                    child: Icon(Icons.add_alert, size: 10),
+                  ),
+                  SizedBox(width: 5),
+                  Expanded(
+                    flex: 4,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(0, 40),
+
+                        backgroundColor: Colors.grey,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusGeometry.circular(10),
+                        ),
+                      ),
+                      child: Text(
+                        "contact",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 5),
+                  Expanded(
+                    flex: 1,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        minimumSize: const Size(0, 40),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusGeometry.circular(10),
+                        ),
+                        backgroundColor: Colors.grey,
+                      ),
+                      onPressed: () {},
+                      child: Center(child: Icon(Icons.person_add, size: 22)),
+                    ),
                   ),
                 ],
               ),
               SizedBox(height: 12),
 
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CircleAvatar(radius: 39, child: Icon(Icons.add)),
                   SizedBox(width: 10),
-                  CircleAvatar(radius: 39, child: Icon(Icons.add)),
+                  CircleAvatar(radius: 39),
+                  SizedBox(width: 10),
+                  CircleAvatar(radius: 39),
                   SizedBox(width: 10),
 
-                  CircleAvatar(radius: 39, child: Icon(Icons.add)),
-                  SizedBox(width: 10),
-
-                  CircleAvatar(radius: 39, child: Icon(Icons.add)),
+                  CircleAvatar(radius: 39),
                 ],
               ),
-
+              SizedBox(height: 20),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 22, top: 15),
-                    child: Icon(Icons.grid_on, size: 35, color: Colors.white),
-                  ),
-                  SizedBox(width: 49),
+                  Icon(Icons.grid_on, size: 35, color: Colors.white),
 
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: Icon(
-                      Icons.video_library_rounded,
-                      size: 35,
-                      color: Colors.white,
-                    ),
+                  Icon(
+                    Icons.video_library_rounded,
+                    size: 35,
+                    color: Colors.white,
                   ),
-                  SizedBox(width: 62),
 
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: Icon(Icons.repeat, size: 35, color: Colors.white),
-                  ),
-                  SizedBox(width: 60),
+                  Icon(Icons.repeat, size: 35, color: Colors.white),
 
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: Icon(
-                      Icons.person_2_outlined,
-                      size: 35,
-                      color: Colors.white,
-                    ),
-                  ),
+                  Icon(Icons.person_2_outlined, size: 35, color: Colors.white),
                 ],
               ),
               Row(

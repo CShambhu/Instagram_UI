@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({super.key});
+  Profile({super.key});
 
+  final List<String> images = List.generate(
+    30,
+    (index) => 'https://picsum.photos/300?random=$index',
+  );
   @override
   Widget build(BuildContext context) {
     final whiteText = TextStyle(color: Colors.white, fontSize: 17);
@@ -218,14 +222,21 @@ class Profile extends StatelessWidget {
                   Icon(Icons.person_2_outlined, size: 35, color: Colors.white),
                 ],
               ),
-              Row(
-                children: [
-                  Image.asset(
-                    "assets/images/superman.png",
-                    height: 120,
-                    width: 150,
-                  ),
-                ],
+              SizedBox(height: 10),
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.zero,
+                itemCount: images.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 2,
+                  mainAxisSpacing: 2,
+                  childAspectRatio: 1,
+                ),
+                itemBuilder: (context, index) {
+                  return Image.network(images[index], fit: BoxFit.fill);
+                },
               ),
             ],
           ),
